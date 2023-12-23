@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "netherportalitem:item/nether_portal_frame",
+        "layer1": "netherportalitem:item/nether_portal_frame_inside"
+    }
+}
