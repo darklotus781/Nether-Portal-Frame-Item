@@ -1,0 +1,7 @@
+{
+  "required": false,
+  "package": "com.lithiumcraft.netherportalitem.mixin",
+  "mixins": [],
+  "client": [],
+  "server": []
+}
