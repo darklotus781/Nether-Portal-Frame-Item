@@ -15,8 +15,8 @@ public class Config
             .define("disableNormalPortalIgnition", true);
 
     private static final ModConfigSpec.ConfigValue<String> FAILED_IGNITION_MESSAGE = BUILDER
-            .comment("Message to show when portal fails to ignite.")
-            .define("failedIgnitionMessage", "The Portal doesn't seem to want to light...\nYou need the \"Nether Portal Frame\" item to spawn a functional Nether Portal!");
+            .comment("Message to show when portal fails to ignite.  Create a new line with §n")
+            .define("failedIgnitionMessage", "The Portal doesn't seem to want to light...§nYou need the §5Nether Portal Frame§r item to spawn a functional Portal!");
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

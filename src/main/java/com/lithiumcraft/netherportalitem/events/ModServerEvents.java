@@ -29,7 +29,7 @@ public class ModServerEvents {
         Player nearest = serverLevel.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10, false);
 
         if (nearest instanceof ServerPlayer player) {
-            String[] messages = Config.failedIgnitionMessage.split("\\n");
+            String[] messages = Config.failedIgnitionMessage.split("§n");
             player.displayClientMessage(Component.literal(messages[0]), false);
 
             serverLevel.getServer().tell(new TickTask(
