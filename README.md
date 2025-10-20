@@ -1,30 +1,126 @@
-# Nether Portal Frame Item
-This is a Minecraft Mod for Forge 1.20.1
-This mod adds the Nether Portal as an Item.  This item can be placed in the world to instantly place a standard size Nether Portal.
-The portal is pre-lit and ready to go.
+# Nether Portal Item Frame
 
-### Why?
-This mod was built to address the issue present in some modpacks where you want to cancel the typical Portal creation and only allow players to travel to the Nether via other means.
-This allows for the built-in Minecraft portal linking and creation but gates it behind progression.  Now in your quests you can reward the player with the portal frame item.
+[![Modrinth](https://badges.moddingx.org/modrinth/downloads/tG0r5SA7)](https://modrinth.com/mod/portal-frame-item)
+[![CurseForge](https://badges.moddingx.org/curseforge/downloads/953246)](https://www.curseforge.com/minecraft/mc-mods/nether-portal-frame-item)
 
-### Example Portal Cancel Event:
-File: kubejs/startup_scripts/netherPortalCancel.js
-```javascript
+**Nether Portal Item Frame** gives you full control over portal creation by turning Nether and End portals into placeable items.
+
+---
+
+## Features
+
+* **Portal Items** — Instantly place pre-lit Nether or End portals by right-clicking the ground.
+* **Modpack Integration** — Disable standard Nether portal ignition and use portal items as quest rewards or gated crafting recipes.
+* **Configurable Behavior** — Fine-tune portal cancellation and custom messages without touching scripts.
+* **Smart Placement Preview** — When holding a portal item, a full preview of the portal’s placement area appears before you build.
+* **End Portal Logic** — Placing an End Portal consumes the item and gives you an Eye of Ender to light the remaining frame.
+
+---
+
+## Installation
+
+1. Install **NeoForge** for Minecraft **1.21.1**.
+2. Drop the mod JAR into your `mods/` folder.
+3. Launch the game once to generate the configuration file.
+
+---
+
+## Configuration
+
+After launching once, a config file will be created at:
+
+```
+config/netherportalitem-common.toml
+```
+
+Example options:
+
+```toml
+# If true, disables natural Nether Portal creation by players.
+disablePortalIgnition = true
+
+# Message displayed when a player attempts to light a portal normally.
+portalFailMessage = "The portal doesn't seem to want to light..."
+```
+
+> 💡 **Tip:** Server owners can include a tuned config in `defaultconfigs/netherportalitemframe.toml` for modpack-wide defaults.
+
+---
+
+## Example KubeJS Integration (1.20.1 only)
+
+If you prefer event scripting, here’s how you might disable normal portal creation using KubeJS:
+
+```js
 ForgeEvents.onEvent("net.minecraftforge.event.level.BlockEvent$PortalSpawnEvent", e => {
-    let {level, pos} = e
     e.setCanceled(true)
-    let server = level.server
-    let player = level.getNearestPlayer(pos.x, pos.y, pos.z, 10, null)
-    if (!player) return
-    player.statusMessage = Text.of("The portal doesn't seem to want to light...")
-    server.schedule(2*1000, ()=> player.statusMessage = Text.of("You need the \"Nether Portal Frame\" Item to spawn a Nether Portal!"))
+    let player = e.level.getNearestPlayer(e.pos.x, e.pos.y, e.pos.z, 10, null)
+    if (player) {
+        player.statusMessage = Text.of("The portal doesn't seem to want to light...")
+    }
 })
 ```
 
-Need Help?
-======
-When reporting an issue put the version number before the issue title! Such as [FULL][0.0.1] My game is broken! Also include any added mods you may have put in, into the description of the issue.
+However, **Nether Portal Item Frame** already handles this automatically via config — no script required.
 
-|                                                         You can also find us on Discord for help<br>or just to chat!                                                          |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| <a href="https://discord.gg/XH7zCjgUHb"><img src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" alt="Join us on Discord!"  width="200" height="68"></a> |
+---
+
+## Gameplay Notes
+
+* Right-click with a **Nether Portal Frame Item** to instantly place a pre-lit Nether portal.
+* Right-click with an **End Portal Frame Item** to build the frame and receive an **Eye of Ender** to light it manually.
+* Works perfectly with quest rewards, gated progression, or scripted crafting recipes.
+
+---
+
+## Compatibility
+
+* **Minecraft:** 1.21.1
+* **Loader:** NeoForge
+* **Worlds:** Safe for existing saves.
+* **Multiplayer:** Server-compatible and sync-safe.
+
+---
+
+## Showcase
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Ds_JLbj4mjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+## Reporting Issues
+
+Please include:
+
+* Game + loader versions (MC 1.21.1, NeoForge build)
+* Mod version (e.g., `1.0.x`)
+* Full `latest.log` (use Pastebin or Gist)
+* Steps to reproduce
+* Modpack name and additional mods if relevant
+
+Open an issue here: **[GitHub Issues](https://github.com/darklotus781/Nether-Portal-Frame-Item/issues)**
+
+---
+
+## License
+
+This mod is licensed under the **MIT License**.
+
+---
+
+## Credits
+
+* **DarkLotus / LithiumCraft** — concept, code, & maintenance
+* Community testers & pack authors providing feedback and ideas
+
+---
+
+## Links
+
+* **Modrinth:** [https://modrinth.com/mod/portal-frame-item](https://modrinth.com/mod/portal-frame-item)
+* **CurseForge:** [https://www.curseforge.com/minecraft/mc-mods/nether-portal-frame-item](https://www.curseforge.com/minecraft/mc-mods/nether-portal-frame-item)
+* **Discord:** [Join the community](https://discord.gg/XH7zCjgUHb)
+
+---
+
+If this mod made your pack better, consider starring the GitHub repo or sharing your builds on Discord!
