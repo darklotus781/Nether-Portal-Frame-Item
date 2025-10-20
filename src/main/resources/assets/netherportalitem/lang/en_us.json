@@ -1,5 +1,7 @@
 {
-    "item.netherportalitem.nether_portal_frame": "Nether Portal Frame",
-    "tooltip.netherportalitem.nether_portal_frame": "§3Used to create a pre-lit Nether Portal Frame.",
-    "creativetab.netherportalitem_tab": "Nether Portal Item"
+  "item.netherportalitem.nether_portal_item": "Nether Portal Frame",
+  "tooltip.netherportalitem.nether_portal_item": "§3Used to create a pre-lit Nether Portal Frame.",
+  "item.netherportalitem.end_portal_item": "End Portal Frame",
+  "tooltip.netherportalitem.end_portal_item": "§3Used to create an End Portal Frame.",
+  "creativetab.netherportalitem_tab": "Portal Frame Item"
 }

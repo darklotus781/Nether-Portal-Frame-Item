@@ -1,8 +1,7 @@
 package com.lithiumcraft.netherportalitem;
 
-import com.lithiumcraft.netherportalitem.items.ModCreativeModeTabs;
-import com.lithiumcraft.netherportalitem.items.ModItems;
-import com.mojang.logging.LogUtils;
+import com.lithiumcraft.netherportalitem.item.ModCreativeModeTabs;
+import com.lithiumcraft.netherportalitem.item.ModItems;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
